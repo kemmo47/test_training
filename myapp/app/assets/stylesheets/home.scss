@@ -1,0 +1,21 @@
+header {
+  .header-todo {
+    background: #336cf8;
+    background: -webkit-linear-gradient(left, #336cf8, #3ad3ff);
+    background: -moz-linear-gradient(left, #336cf8, #3ad3ff);
+    background: linear-gradient(to right, #336cf8, #3ad3ff);
+    color: #fff;
+    padding: 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+}
+main {
+  #list-todo {
+    h4 {
+      color: #888;
+      font-weight: 400;
+      padding: 20px 0;
+    }
+  }
+}

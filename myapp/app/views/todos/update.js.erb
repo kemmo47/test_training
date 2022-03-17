@@ -1,0 +1,10 @@
+$('.loading').addClass('active')
+if(<%= @todo.todo_complete == 1 %>){
+    $(`#todo_${<%= @todo.id %>}`).addClass('active');
+    $(`#todo_${<%= @todo.id %>} .checkbox_complete`).addClass('check').removeClass('uncheck');
+    toast('success', 'Complete', '<%= @todo.todo_info.gsub(/\\/, "\\\\\\\\") %>')
+} else {
+    $(`#todo_${<%= @todo.id %>}`).removeClass('active');
+    $(`#todo_${<%= @todo.id %>} .checkbox_complete`).addClass('uncheck').removeClass('check');
+    toast('success', 'Uncomplete', '<%= @todo.todo_info.gsub(/\\/, "\\\\\\\\") %>')
+}

@@ -1,0 +1,25 @@
+$('input[name="todo[todo_info]"]').prop('disabled', true);
+$('.loading').addClass('active')
+
+if ( ('<%= @todo.errors.full_messages[0] %>').length !== 0 ){
+    const mes = ('<%= @todo.errors.full_messages[0] %>').replace(/&quot;|&quot;/g,'');
+
+    Toast.fire({
+        icon: 'warning',
+        title: mes
+    })
+
+    $('input[name="todo[todo_info]"]').prop('disabled', false).focus();
+    $('.loading').removeClass('active')
+} else {
+    toast('success', 'Add', '<%= @todo.todo_info.gsub(/\\/, "\\\\\\\\") %>')
+    $('#todo_todo_info').val(''); 
+    const url = location.pathname;
+    const host = location.host;
+    setTimeout(() => {
+        location.href = url;
+    }, 1000);                  
+}
+
+$(`#todo_<%= @todo.id %>`).hide().fadeIn(650);
+$('#list-empty-mes').hide();

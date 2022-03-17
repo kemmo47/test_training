@@ -1,0 +1,10 @@
+<div class="container">
+    <%= render template: 'todos/header' %>
+    <div class="box-todo mb-4">
+        <%= render template: 'todos/_form' %>
+        <%= render template: 'todos/main'%>
+        <div class="loading">
+            <%=image_tag("loading.gif")%>
+        </div>
+    </div>
+</div>

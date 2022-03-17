@@ -1,0 +1,7 @@
+<%= form_for(@todo, remote: true) do |form| %>
+    <%= form.hidden_field :todo_complete, value:"0" %>
+    <div class="my-3 btn-group">
+        <%= form.text_field :todo_info, required: true, class:"form-control", placeholder:"Add Todos Content...", autocomplete:"off" %>
+        <%= form.submit "Add Todo", class:"btn btn-primary add-new-todo" %>
+    </div>
+<% end %>

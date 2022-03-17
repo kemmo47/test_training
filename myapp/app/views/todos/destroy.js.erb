@@ -1,0 +1,23 @@
+toast('success', 'Delete', '<%= @todo.todo_info.gsub(/\\/, "\\\\\\\\") %>')
+
+let searchParams = new URLSearchParams(window.location.search)
+let param = searchParams.get('page')
+const todoItem = $('.todo-item ').length;
+setTimeout(() => {
+    if(todoItem == 1){
+        if(param > 1){
+            $(location).attr('search',`page=${param-1}`)
+        } else {
+            location.href = location.pathname
+        }
+    } else {
+        if(param == null) {
+            location.href = location.pathname
+        }else {
+            $(location).attr('search',`page=${param}`)
+        }   
+    }
+}, 1000);  
+
+load_empty()
+$('.loading').addClass('active')

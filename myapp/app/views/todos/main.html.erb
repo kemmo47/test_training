@@ -1,0 +1,20 @@
+<main>
+    <table class="table table-hover" id="list-todo">
+        <tbody>
+        <% @todos.each do |todo| %>
+            <tr class="todo-item <%= todo.todo_complete == 1 ? "active" : "" %>" id="todo_<%= todo.id %>">
+                <td class="checkbox_complete <%= todo.todo_complete == 1 ? "check" : "uncheck" %>">
+                    <%= link_to '',todo, method: :put, remote: true, title:'complete',class: 'check-box-todo' %>
+                </td>
+                <td class="text-dark"><%= todo.todo_info %></td>
+                <td><%= link_to (raw(image_tag("trash.svg"))), todo, method: :delete, data: { confirm_swal:'Are you sure delete: '+todo.todo_info+'?' }, remote: true, title:'remove', class: "remove-item"  %></td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+
+    <div class="container" id="list-empty-mes">
+        <h4>The list of to-do is empty!</h4>  
+    </div>
+    <%= will_paginate @todos %>
+</main>
