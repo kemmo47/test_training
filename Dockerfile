@@ -1,6 +1,6 @@
 FROM ruby
 # RUN apk update && apk add --virtual build-dependencies build-base
-RUN gem install rails -v 6.1.0
+RUN gem install rails -v 6.1.5
 RUN gem install bundler
 
 RUN curl https://deb.nodesource.com/setup_12.x | bash
